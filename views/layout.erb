@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacts</title>
+    <link rel="stylesheet" href="/stylesheets/whitespace_reset.css">
+    <link rel="stylesheet" href="/stylesheets/contacts.css">
+  </head>
+  <body>
+    <header>
+      <h1><a href="/contacts">Contacts</a></h1>
+      <nav> 
+        <a href="/contacts/add_contact">Add a Contact</a>
+      </nav>
+    </header>
+    <% if session[:message] %>
+      <div class="message">
+        <p><%= session.delete(:message) %></p>
+      </div>
+    <% end %>
+    <%== yield %>
+  </body>
+</html>

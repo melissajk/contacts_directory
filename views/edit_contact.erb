@@ -1,0 +1,47 @@
+<form action="/contacts/<%= params[:id] %>" method="post">
+  <fieldset>
+    <h1>Contact Information:</h1>
+    
+
+    <dl class="category">
+      <dt><label for="friends">Friends</label></dt>
+      <dd><input type="radio" name="category" id="friends" value="friends"
+          <%= @contact[:category] == "friends" ? "checked" : nil %>/>
+      </dd>
+
+      <dt><label for="family">Family</label></dt>
+      <dd><input type="radio" name="category" id="family" value="family"
+          <%= @contact[:category] == "family" ? "checked" : nil %>/>
+      </dd>
+
+      <dt><label for="business">Business</label></dt>
+      <dd><input type="radio" name="category" id="business" value="business"
+          <%= @contact[:category] == "business" ? "checked" : nil %>/>
+      </dd>
+    </dl>
+    
+    <dl class="contact-info">
+      <dt><label for="name">Name:</label></dt>
+      <dd><input id="name" name="name" 
+           required value="<%= params[:name] || @contact[:name] %>"/></dd>
+        
+      <dt><label for="address">Address:</label></dt>
+      <dd><input id="address" name="address" value="<%= params[:address] || @contact[:address]%>"/></dd>
+    
+      <dt><label for="phone">Phone:</label></dt>
+      <dd><input type="tel" id="phone" name="phone" 
+           required value="<%= params[:phone] || @contact[:phone]%>"/></dd>
+    
+      <dt><label for="email">Email:</label></dt>
+      <dd><input name="email" id="email" value="<%= params[:email] || @contact[:email]%>"/></dd>
+    </dl>
+    
+    <input type="submit" value="Make Changes">
+  </fieldset>
+</form>
+
+<form id="delete-contact" action="/contacts/<%= params[:id] %>/delete" method="post" >
+  <button type="submit">Delete Contact</button>
+</form>
+
+

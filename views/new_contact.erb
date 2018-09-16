@@ -1,0 +1,33 @@
+<form action="/contacts/add_contact" method="post">
+  <fieldset>
+    <h1>Contact Information:</h1>
+    
+
+    <dl class="category">
+      <dt><label for="friends">Friends</label></dt>
+      <dd><input type="radio" name="category" id="friends" value="friends" checked /></dd>
+
+      <dt><label for="family">Family</label></dt>
+      <dd><input type="radio" name="category" id="family" value="family" /></dd>
+
+      <dt><label for="business">Business</label></dt>
+      <dd><input type="radio" name="category" id="business" value="business" /></dd>
+    </dl>
+    
+    <dl class="contact-info">
+      <dt><label for="name">Name:</label></dt>
+      <dd><input id="name" name="name" required value="<%= params[:name]%>"/></dd>
+        
+      <dt><label for="address">Address:</label></dt>
+      <dd><input id="address" name="address" value="<%= params[:address]%>"/></dd>
+    
+      <dt><label for="phone">Phone:</label></dt>
+      <dd><input type="tel" id="phone" required name="phone" value="<%= params[:phone]%>"/></dd>
+    
+      <dt><label for="email">Email:</label></dt>
+      <dd><input name="email" id="email" value="<%= params[:email]%>"/></dd>
+    </dl>
+    
+    <input type="submit" value="Submit">
+  </fieldset>
+</form>
