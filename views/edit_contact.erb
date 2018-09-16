@@ -6,17 +6,17 @@
     <dl class="category">
       <dt><label for="friends">Friends</label></dt>
       <dd><input type="radio" name="category" id="friends" value="friends"
-          <%= @contact[:category] == "friends" ? "checked" : nil %>/>
+          <%= @contact[:category] == "friends" ? :checked : nil %>/>
       </dd>
 
       <dt><label for="family">Family</label></dt>
       <dd><input type="radio" name="category" id="family" value="family"
-          <%= @contact[:category] == "family" ? "checked" : nil %>/>
+          <%= @contact[:category] == "family" ? :checked : nil %>/>
       </dd>
 
       <dt><label for="business">Business</label></dt>
       <dd><input type="radio" name="category" id="business" value="business"
-          <%= @contact[:category] == "business" ? "checked" : nil %>/>
+          <%= @contact[:category] == "business" ? :checked :nil %>/>
       </dd>
     </dl>
     
