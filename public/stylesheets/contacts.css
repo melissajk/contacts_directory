@@ -265,12 +265,15 @@ fieldset > input:hover {
   background-color: rgba(0, 0, 0, .5);
 }
 
+/* reset button */
+
 #reset button {
   position: absolute;
   top: 5px;
   right: 5px
 }
 
+/* media queries */
 @media screen and (min-width: 600px) {
   
   h1 {
@@ -321,18 +324,20 @@ fieldset > input:hover {
 
 @media screen and (min-width: 800px) {
 
+  main {
+    max-width: 1000px;
+  }
   .search-methods {
-    display: inline-block;
-    width: 30%;
     background-color: #F5F5F5;
+    box-sizing: border-box;
     padding: 2% 0 100px 2%;
+    float: left;
+    width: 35%;
   }
 
   .search-results {
-    box-sizing: border-box;
-    display: inline-block;
-    width: 65%;
     vertical-align: top;
+    overflow: hidden;
   }
   
   .category-search ul {
@@ -358,7 +363,7 @@ fieldset > input:hover {
     position: absolute;
     background-color: #fff;
     top: 82px;
-    left: 32%;
+    left: 35%;
     right: 0;
     bottom: 0;
     z-index: 2;
@@ -369,4 +374,12 @@ fieldset > input:hover {
     text-align: left;
   }
 }
+
+@media screen and (min-width: 1000px) {
+  .search-results input:checked + li {
+    left: 350px;
+  }
+}
+
+
 

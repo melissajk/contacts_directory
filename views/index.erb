@@ -1,49 +1,50 @@
-<section class="search-methods">  
-  <div class="category-search">
-    <h2>Search by Category</h2>
-    <ul>
-      <% CATEGORIES.each do |category| %>
-      <li><a href="contacts?query=<%=category%>"><%= category.capitalize %></a></li>
-      <%end%>
-    </ul>
-  </div>
-
-  <div class="name-search">
-    <h2>Search by Name</h2>
-    <form action="/contacts" method="get">
-      <input name="query" value="<%= CATEGORIES.include?(params[:query]) ? nil : params[:query] %>">
-      <button type="submit">Search</button>
-    </form>
-  </div>
-  
-</section>
-
-<section class="search-results">
-  <h2>Search Results</h2>
-  <% if params[:query] %>
-    <% if @results.empty? %>
-      <p class="message">Sorry, no matches were found.</p>
-    <% else %>
-      <h3>..for '<%= params[:query].capitalize %>'</h3>
+<main>
+  <section class="search-methods">  
+    <div class="category-search">
+      <h2>Search by Category</h2>
       <ul>
-        <% @results.each do |result| %>
-        <label>
-          <input type="checkbox" name="contact">
-          <li>
-            <p><%= result[:name] %></p>
-            <ul>
-              <li><%= result[:address]%></li>
-              <li><%= phone_number(result[:phone])%></li>
-              <li><%= result[:email]%></li>
-            </ul>
-            <a href="/contacts/<%= result[:id] %>/edit">Edit Contact</a>
-          </li>
-        </label>
-        <% end %>
+        <% CATEGORIES.each do |category| %>
+        <li><a href="contacts?query=<%=category%>"><%= category.capitalize %></a></li>
+        <%end%>
       </ul>
+    </div>
+
+    <div class="name-search">
+      <h2>Search by Name</h2>
+      <form action="/contacts" method="get">
+        <input name="query" value="<%= CATEGORIES.include?(params[:query]) ? nil : params[:query] %>">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="search-results">
+    <h2>Search Results</h2>
+    <% if params[:query] %>
+      <% if @results.empty? %>
+        <p class="message">Sorry, no matches were found.</p>
+      <% else %>
+        <h3>..for '<%= params[:query].capitalize %>'</h3>
+        <ul>
+          <% @results.each do |result| %>
+          <label>
+            <input type="checkbox" name="contact">
+            <li>
+              <p><%= result[:name] %></p>
+              <ul>
+                <li><%= result[:address]%></li>
+                <li><%= phone_number(result[:phone])%></li>
+                <li><%= result[:email]%></li>
+              </ul>
+              <a href="/contacts/<%= result[:id] %>/edit">Edit Contact</a>
+            </li>
+          </label>
+          <% end %>
+        </ul>
+      <% end %>
     <% end %>
-  <% end %>
-</section>
+  </section>
+</main>
 
 <form id="reset" action="/reset" method="post" >
   <button type="submit">Reset DB</button>
