@@ -32,6 +32,12 @@ class ContactsDatabase
     @db.exec_params(statement, params)
   end
   
+  def duplicate_contact_name?(name)
+    sql = "SELECT * FROM contacts WHERE name = $1;"
+    result = query(sql, "#{name}")
+    result.values.size > 0
+  end
+  
   def find_contact_by_name(name)
     sql = "SELECT * FROM contacts WHERE name ILIKE $1;"
     result = query(sql, "%#{name}%")

@@ -2,7 +2,7 @@ CREATE TABLE contacts (
   id serial PRIMARY KEY,
   name text NOT NULL,
   address text,
-  email text,
+  email text CHECK (email ~ '^(\w|.)+@\w+.\w+$'),
   category text NOT NULL,
   phone_number char(10) NOT NULL CHECK (phone_number ~ '^\d{10}$')
 );
