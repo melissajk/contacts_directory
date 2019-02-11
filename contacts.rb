@@ -69,7 +69,6 @@ end
 
 def error_for_contact_info
   required_fields_error ||
-  duplicate_name_error  ||
   invalid_phone_number  ||
   invalid_email_address ||
   nil
@@ -98,7 +97,7 @@ get "/contacts/add_contact" do
 end
 
 post "/contacts/add_contact" do
-  error = error_for_contact_info
+  error = error_for_contact_info || duplicate_name_error
   
   if error
     session[:message] = error
