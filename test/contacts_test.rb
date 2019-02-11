@@ -154,6 +154,16 @@ class TestApp < Minitest::Test
     assert_includes last_response.body, "Contact Information:"
   end
   
+  def test_create_new_contact_duplicate_name
+    post "contacts/add_contact", sample_contact
+    post "contacts/add_contact", sample_contact
+    
+    assert_equal 422, last_response.status
+    assert_includes last_response.body, "Contact 'Hello' already exists."
+    assert_includes last_response.body, "Hello"
+    assert_includes last_response.body, "Contact Information:"
+  end
+  
   def test_create_new_contact_invalid_phone
     post "contacts/add_contact", sample_contact.merge(phone: "1234567")
     

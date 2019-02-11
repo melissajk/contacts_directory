@@ -59,7 +59,12 @@ def invalid_email_address
   return nil if contact_info[:email].empty?
   message = "Invalid email address. Please re-enter or leave blank."
 
-  contact_info[:email].match(/^\w+@\w+.\w+$/) ? nil : message
+  contact_info[:email].match(/^(\w|.)+@\w+.\w+$/) ? nil : message
+end
+
+def duplicate_name_error
+  message = "Contact '#{contact_info[:name]}' already exists."
+  @storage.duplicate_contact_name?(contact_info[:name]) ? message : nil
 end
 
 def error_for_contact_info
@@ -92,7 +97,7 @@ get "/contacts/add_contact" do
 end
 
 post "/contacts/add_contact" do
-  error = error_for_contact_info
+  error = error_for_contact_info || duplicate_name_error
   
   if error
     session[:message] = error
