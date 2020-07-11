@@ -1,8 +1,8 @@
 source "https://rubygems.org"
 
-ruby "2.4.4"
+ruby "2.5.0"
 
-gem "sinatra", "~>1.4.7"
+gem "sinatra"
 gem "sinatra-contrib"
 gem "erubis"
 gem "minitest"
@@ -10,5 +10,5 @@ gem "pg"
 gem "simplecov"
 
 group :production do
-  gem "puma"
+  gem "puma", ">= 3.12.4"
 end
