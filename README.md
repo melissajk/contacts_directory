@@ -1,7 +1,7 @@
 # contacts_directory
 Contacts Directory Application for LS 202 Course
 
-This is a basic CRUD application that can:
+This is a basic CRUD application prototype that can:
 - Add name, category, phone number, address and email address for a new contact
 - Edit or delete contacts
 - Search for contacts by name
