@@ -1,5 +1,5 @@
 # contacts_directory
-Contacts Directory Application for LS 202 Course
+Contacts Directory Application Prototype
 
 This is a basic CRUD application prototype that can:
 - Add name, category, phone number, address and email address for a new contact
